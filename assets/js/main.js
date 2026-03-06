@@ -21,6 +21,8 @@
 
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
+  
+  document.getElementById("year").textContent = new Date().getFullYear();
 
   /**
    * Mobile nav toggle
