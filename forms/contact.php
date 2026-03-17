@@ -7,13 +7,21 @@
   */
 
   // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+  $receiving_email_address = 'ogbuuchenna55@gmail.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
+  $php_email_form = '../assets/vendor/php-email-form/php-email-form.php';
+
+  if (file_exists($php_email_form)) {
+      include($php_email_form);
   } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
+      die('Unable to load the PHP Email Form Library!');
   }
+
+  // if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
+  //   include( $php_email_form );
+  // } else {
+  //   die( 'Unable to load the "PHP Email Form" Library!');
+  // }
 
   $contact = new PHP_Email_Form;
   $contact->ajax = true;
@@ -39,6 +47,8 @@
     $contact->add_message( $_POST['phone'], 'Phone');
   }
   $contact->add_message( $_POST['message'], 'Message', 10);
+
+  echo "Form reached PHP successfully";
 
   echo $contact->send();
 ?>
